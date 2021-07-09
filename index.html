@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Thực Hành Sự Kiện Bàn Phím</title>
+</head>
+<body onLoad="docReady()">
+
+    <img id="nobita" src="images/nobita.jpg" style="position:absolute;left:0; top:0;" height="100" width="80"/>
+
+    <img id="chaien" src="images/chaien.jpg" style="position:absolute;right:0px; bottom:0px;" height="100" width="80"/>
+
+
+<script>
+    // Move nobita
+    function upArrowPressed() {
+        let element = document.getElementById("nobita");
+        element.style.top = parseInt(element.style.top) - 5 + 'px';
+    }
+
+    function downArrowPressed() {
+        let element = document.getElementById("nobita");
+        element.style.top = parseInt(element.style.top) + 5 + 'px';
+    }
+
+    function leftArrowPressed() {
+        let element = document.getElementById("nobita");
+        element.style.left = parseInt(element.style.left) - 5 + 'px';
+    }
+
+    function rightArrowPressed() {
+        let element = document.getElementById("nobita");
+        element.style.left = parseInt(element.style.left) + 5 + 'px';
+
+    }
+
+    // Move Chaien
+
+    function upArrowPressedChaien() {
+        let element = document.getElementById("chaien");
+        element.style.bottom = parseInt(element.style.bottom) + 5 + 'px';
+    }
+
+    function downArrowPressedChaien() {
+        let element = document.getElementById("chaien");
+        element.style.bottom = parseInt(element.style.bottom) - 5 + 'px';
+    }
+
+    function leftArrowPressedChaien() {
+        let element = document.getElementById("chaien");
+        element.style.right = parseInt(element.style.right) + 5 + 'px';
+    }
+
+    function rightArrowPressedChaien() {
+        let element = document.getElementById("chaien");
+        element.style.right = parseInt(element.style.right) - 5 + 'px';
+
+    }
+
+    function moveSelection(evt) {
+        switch (evt.keyCode) {
+            case 37:
+                leftArrowPressed();
+                break;
+            case 39:
+                rightArrowPressed();
+                break;
+            case 38:
+                upArrowPressed();
+                break;
+            case 40:
+                downArrowPressed();
+                break;
+        }
+    }
+
+    function moveSelectionChaien(evt) {
+        switch (evt.keyCode) {
+            case 65:
+                leftArrowPressedChaien();
+                break;
+            case 68:
+                rightArrowPressedChaien();
+                break;
+            case 87:
+                upArrowPressedChaien();
+                break;
+            case 83:
+                downArrowPressedChaien();
+                break;
+        }
+    }
+
+    function docReady() {
+        window.addEventListener('keydown', moveSelection);
+        window.addEventListener('keydown', moveSelectionChaien);
+    }
+
+</script>
+</body>
+</html>
